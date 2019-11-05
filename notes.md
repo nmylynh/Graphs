@@ -22,7 +22,7 @@ Are collections of data represented by nodes and connections between nodes.
    3. we can represent that using weight
 
 **Code for above image:**
-1. V is verticies
+1. V is verticies/nodes
 2. E is edges
    1. in the front edge, `(v0, v1, 5)` represents the two verticies it connects to and the last number is the optional weight
 
@@ -39,4 +39,51 @@ E = {
     }
 ```
 
+### Examples
 
+#### BART
+
+![sf bart map](https://www.bart.gov/sites/all/themes/bart_desktop/img/system-map.gif "sf bart map")
+
+- In the above picture, the different possibile stops you can get off at are nodes
+- The different trains to get to one stop to another are edges
+- Each edges has a weight like
+  - how much time it takes to get to one stop to another
+
+#### Github
+
+Networks of activity is made using graphs (push, pull, commits)
+
+![github](https://eazybi.com/static/img/blog_page/posts/2016_01_21/git_log_analysis_and_reporting.png)
+
+#### Any networks
+- Social networks
+- Cell phone networks
+- etc.
+
+#### Websites
+
+![website](https://i.imgur.com/THnIATB.png)
+
+1. **Directed graph**
+   1. can only move in one direction along edges
+2. **undirected graph/bidirectional graphs** 
+   1. allows movement in both directions along edges 
+
+#### Cyclic Graphs && Acyclic
+
+![cyclic graph](https://study.com/cimages/multimages/16/cyclic_graphs.png)
+
+>A cyclic graph is a directed graph which contains a path from at least one node back to itself. In simple terms cyclic graphs contain a cycle.
+
+- Edges allow you to revisit at least one vert.
+
+![acyclic](https://study.com/cimages/multimages/16/a6abfeb0-f4ea-48b3-ab1e-0891c880d74a_acyclic_graphs.png)
+
+>An acyclic graph is a directed graph which contains absolutely no cycle, that is no node can be traversed back to itself.
+
+- vertices can only be visited once
+
+### In conclusion
+
+Graphs are a set of vertices and edges that connect those vertices. We can use graphs to represent a variety of different netwroks or related pieces of data.
