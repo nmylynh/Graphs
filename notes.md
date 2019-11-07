@@ -86,4 +86,44 @@ Networks of activity is made using graphs (push, pull, commits)
 
 ### In conclusion
 
-Graphs are a set of vertices and edges that connect those vertices. We can use graphs to represent a variety of different netwroks or related pieces of data.
+Graphs are a set of vertices and edges that connect those vertices. We can use graphs to represent a variety of different networks or related pieces of data.
+
+## Breadth First Search
+
+![Breadth First Search](https://i.imgur.com/7Mn3r52.jpg)
+
+1. Is an algorithm used to search a graph--and find a solution to whatever we are trying to solve.
+
+2. Explores all possible paths to find one with the smallest weight, traversing across before traversing down.
+
+3. In breadth-first search we explore all the nodes on the same level of the graph before moving down to deeper levels that are further away from the root.
+
+4. The algorithm never attempts to explore a vert that it either has explored or is exploring.
+
+### Uses
+
+1. Route finding or path finding problems
+   1. Makes sense to explore the closest routes first
+2. Social network
+   1. Friend suggestions on Facebook
+   2. connect suggestions on linkedin
+
+### Algorithm
+
+1. Begin at the starting vertex(s)
+   1. If tree, it starts at root of tree
+   2. If undirected graph, define a start
+2. Explore vertex 
+   1. You're at a specific vertex and you're going to explore it using a loop that you're repeating over and over
+   2. while there is at least 1 other vertex adjacent to this that we have not marked to explore
+      1. We're going to schedule that vertex to be explored later
+         1. you can use a `[ queue ]` to implement that scheduling
+         2. continue to schedule adjacent vertices to current vertex
+3. Mark vertex as explored
+   1. Once you're finished scheduling all the vertices
+   2. You can now mark vertices as explored, and remove them from queue
+
+
+
+
+
