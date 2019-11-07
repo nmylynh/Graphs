@@ -92,7 +92,7 @@ Graphs are a set of vertices and edges that connect those vertices. We can use g
 
 ![Breadth First Search](https://i.imgur.com/7Mn3r52.jpg)
 
-1. Is an algorithm used to search a graph--and find a solution to whatever we are trying to solve.
+1. Is an algorithm used to search/traverse a graph--and find a solution to whatever we are trying to solve.
 
 2. Explores all possible paths to find one with the smallest weight, traversing across before traversing down.
 
@@ -120,10 +120,14 @@ Graphs are a set of vertices and edges that connect those vertices. We can use g
          1. you can use a `[ queue ]` to implement that scheduling
          2. continue to schedule adjacent vertices to current vertex
 3. Mark vertex as explored
-   1. Once you're finished scheduling all the vertices
-   2. You can now mark vertices as explored, and remove them from queue
+   1. Once you're finished scheduling all the adjacent vertices
+   2. You can now mark the current vertex as explored, and remove it from queue
+   3. Then move onto the next scheduled item in queue
+4. Then repeat the algorithm
 
+### Conclusion
 
+>We can use breadth first search to traverse a graph, starting at levels closes to the root and finishing at those furthest away
+>BFS is good for solving a derivative of the "shortest path" problem or other scenarios where you know the solution is not far from the root
 
-
-
+1. Not good for traversing down to leaf nodes.
