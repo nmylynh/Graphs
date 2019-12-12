@@ -3,6 +3,8 @@
 class User:
     def __init__(self, name):
         self.name = name
+    def __repr__(self, name):
+        return self.name
 
 class SocialGraph:
     def __init__(self):
@@ -45,10 +47,23 @@ class SocialGraph:
         self.users = {}
         self.friendships = {}
         # !!!! IMPLEMENT ME
-
-        # Add users
-
-        # Create friendships
+        # add users
+        # call addUser() until our number of users is numUsers
+        # create random friendships
+        # avgFriendships = total Friendships / numUsers
+        # total friendships = avgFriendships * numUsers
+        # generate a list of all possible friendships
+        # avoid dupes by ensuring the first ID is smaller than the second
+        # shuffle the list
+        # slice off totalFriendships from the front, create those friendships
+        for i in range(numUsers):
+            self.addUser(f'User {i+1}')
+        possibleFriendships = []
+        for userID in self.users:
+            for friendID in range(userID + 1, self.lastID + 1):
+                possibleFriendships.append( (userID, friendID) )      
+        print("possible friendships")
+        print(possibleFriendships)  
 
     def getAllSocialPaths(self, userID):
         """
@@ -67,6 +82,9 @@ class SocialGraph:
 if __name__ == '__main__':
     sg = SocialGraph()
     sg.populateGraph(10, 2)
+    print("USERS:")
+    print(sg.users)
+    print("FRIENDSHIPS:")
     print(sg.friendships)
     connections = sg.getAllSocialPaths(1)
     print(connections)
