@@ -91,7 +91,7 @@ class SocialGraph:
 
 if __name__ == '__main__':
     sg = SocialGraph()
-    sg.populateGraph(10, 2)
+    sg.populateGraph(11, 2)
     print("USERS:")
     print(sg.users)
     print("FRIENDSHIPS:")
