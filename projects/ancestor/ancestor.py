@@ -16,10 +16,12 @@ def earliest_ancestor(ancestors, starting_node):
     for relationship in ancestors:
         graph.add_edge(relationship[0], relationship[1])
 
-    # dft_paths = []
-    # for vert in graph.vertices:
-    #     dft_paths.append(graph.dft(vert))
-    # print(dft_paths)
+    dft_paths = []
+    for vert in graph.vertices:
+        dft_paths.append(graph.dft(vert))
+    print(dft_paths)
+
+
     # traverse graph, dft
     # dft_paths = graph.dft(starting_node)
     # print(dft_paths)
@@ -28,5 +30,3 @@ if __name__=='__main__':
     print('ancestry graph:')
     earliest_ancestor(test_ancestors, 6)
     print(graph.vertices)
-    print(graph.dfs(4, 9))
-
