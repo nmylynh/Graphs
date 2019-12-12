@@ -76,6 +76,7 @@ class Graph:
         s.push(starting_vertex)
         # Create a Set to store visited vertices
         visited = set()
+        order = []
         # While the stack is not empty...
         while s.size() > 0:
             # Pop the first vertex
@@ -85,10 +86,11 @@ class Graph:
                 # Mark it as visited...
                 print(v)
                 visited.add(v)
+                order.append(v)
                 # Then add all of its neighbors to top of the stack
                 for neighbor in self.vertices[v]:
                     s.push(neighbor)
-        return visited
+        return order
 
     def dft_recursive(self, starting_vertex, visited=None):
         """

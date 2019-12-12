@@ -12,13 +12,32 @@ def earliest_ancestor(ancestors, starting_node):
     for relationship in ancestors:
         graph.add_vertex(relationship[0])
         graph.add_vertex(relationship[1])
-    # populate graph, for every rel tuple, add an edge connecting each appropriate vert[index]
+    # add edges, but switcheroo for dft algorithm
     for relationship in ancestors:
-        graph.add_edge(relationship[0], relationship[1])
-        
-    print(graph.vertices)
+        graph.add_edge(relationship[1], relationship[0])
+
+    # make a list of the dft path
+    path = graph.dft(starting_node)
+
+    # check distance 
+    if len(path) > 2:
+        dist1 = graph.dfs(starting_node, path[-1])
+        dist2 = graph.dfs(starting_node, path[-2])
+
+    # checks and returns
+    if len(path) < 2:
+        return -1
+    elif len(path) > 2:
+        if len(dist1) == len(dist2):
+            if path[-2] < path[-1]:
+                return path[-2]
+        else:
+            return path[-1]
+    else:
+        return path[-1]
+
 
 
 if __name__ == '__main__':
-    earliest_ancestor(test_ancestors, 1)
+    earliest_ancestor(test_ancestors, 8)
     
