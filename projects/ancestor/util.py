@@ -51,6 +51,7 @@ class Graph:
         q = Queue()
         # Create and empty Set to store the visited vertices
         visited = set()
+        q.enqueue(starting_vertex)
         # While the queue is not empty...
         while q.size() > 0:    
             # Dequeue the first vertex
