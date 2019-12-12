@@ -1,7 +1,11 @@
 from util import Stack, Queue, Graph
 """
+This stupid thing works and passes the test.
+Things I am aware of:
+    - This is a brute force solution and prolly not work for added vertices.
+Things to work on:
+    - Probably just change the dfs to break array when neighbour vert matches starting vert. Next time!
 
-Write a function that, given the dataset and the ID of an individual in the dataset, returns their earliest known ancestor – the one at the farthest distance from the input individual. If there is more than one ancestor tied for "earliest", return the one with the lowest numeric ID. If the input individual has no parents, the function should return -1.
 """
 test_ancestors = [(1, 3), (2, 3), (3, 6), (5, 6), (5, 7), (4, 5), (4, 8), (8, 9), (11, 8), (10, 1)]
 
