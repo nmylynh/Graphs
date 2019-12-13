@@ -47,7 +47,33 @@ visited = {}
     # b. and backtracking at a leaf node until all available exits from each node is cleared
 # 4. ends when all nodes are visited, matching the roomGraph
 
+# while visited rooms is less than the entire room graph
+while len(visited) < len(roomGraph):
+    room_id = player.currentRoom.id
+    # if the current node isnt in the exits dict
+    if room_id not in available_exits:
+        # put it in there, with the available exits stack
+        available_exits[room_id] = player.currentRoom.getExits()
+        # log the visited node
+        visited[room_id] = room_id
 
+    # traverse until each node's exit stack is empty
+    if len(available_exits[room_id]) < 1: # if it is empty
+        # pop the previous direction
+        previous_direction = prev_dir.pop()
+        # add that you backtracked to the traversalPath
+        traversalPath.append(previous_direction)
+        # travel to the popped direction
+        player.travel(previous_direction)
+    else: # if it ain't empty
+        # pop the stack, order: (n, s, e, w)
+        new_room = available_exits[room_id].pop(0)
+        # keep track of the previous direction you went by logging the opposite direction of the new room you're going to
+        prev_dir.append(opposite_direction[new_room])
+        # log the node you're gonna traverse
+        traversalPath.append(new_room)
+        # move to the new room
+        player.travel(new_room)
 
 
 
@@ -68,13 +94,13 @@ else:
 
 
 
-#######
+# ######
 # UNCOMMENT TO WALK AROUND
-#######
-# player.currentRoom.printRoomDescription(player)
-# while True:
-#     cmds = input("-> ").lower().split(" ")
-#     if cmds[0] in ["n", "s", "e", "w"]:
-#         player.travel(cmds[0], True)
-#     else:
-#         print("I did not understand that command.")
+# ######
+player.currentRoom.printRoomDescription(player)
+while True:
+    cmds = input("-> ").lower().split(" ")
+    if cmds[0] in ["n", "s", "e", "w"]:
+        player.travel(cmds[0], True)
+    else:
+        print("I did not understand that command.")
