@@ -103,9 +103,9 @@ class SocialGraph:
 			# When we reach an unvisited user, append the path to the visited dictionary
                 visited[v] = path
 				# Then enqueue PATHS TO each of its neighbors in the queue
-                for neighbor in self.friendships[v]:
+                for friendID in self.friendships[v]:
                     path_copy = path.copy()
-                    path_copy.append(neighbor)
+                    path_copy.append(friendID)
                     queue.enqueue(path_copy)
         # return visited
         return visited
