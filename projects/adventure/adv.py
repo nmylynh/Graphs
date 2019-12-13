@@ -66,8 +66,8 @@ while len(visited) < len(roomGraph):
         # travel to the popped direction
         player.travel(previous_direction)
     else: # if it ain't empty
-        # pop the stack, order: (n, s, e, w)
-        new_room = available_exits[room_id].pop(0)
+        # pop the stack
+        new_room = available_exits[room_id].pop()
         # keep track of the previous direction you went by logging the opposite direction of the new room you're going to
         prev_dir.append(opposite_direction[new_room])
         # log the node you're gonna traverse
